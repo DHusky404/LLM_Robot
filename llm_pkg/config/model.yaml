@@ -1,0 +1,31 @@
+# 项目使用的都是阿里百炼平台的大模型，可以根据需要进行更换
+# 作为机器人决策中心的大模型参数
+decision:
+  api_key: "sk-"
+  base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  model: "qwen2.5-72b-instruct"
+
+
+# VLM模型
+VLM:
+  api_key: "sk-"
+  base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  model: "qvq-72b-preview"
+  
+
+# embedding模型(如果embedding模型不同则需要重新初始化向量数据库)
+embedding:
+  api_key: "sk-"
+  base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  model: "text-embedding-v3"
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+<launch>
+    <!-- 启动大模型节点 -->
+    <node  pkg="llm_pkg" type="llm_node.py"  name="llm_node" output="screen">
+        <rosparam file="$(find llm_pkg)/config/model.yaml" command="load" />
+        <param name="image_path" value="$(find cv_pkg)/images/" />
+        <param name="RAG_path" value="$(find llm_pkg)/scripts/RAG_database/chroma_db" />
+    </node>
+</launch>

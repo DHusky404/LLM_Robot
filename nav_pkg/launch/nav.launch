@@ -1,0 +1,25 @@
+<launch>
+    <!-- 载入 机器人 和 RoboCup@Home 的仿真场景 -->
+    <include file="$(find env)/launch/sim_env.launch"/>
+
+    <!--- Run move_base -->
+    <node pkg="move_base" type="move_base" name="move_base">
+        <rosparam file="$(find nav_pkg)/nav_lidar/costmap_common_params.yaml" command="load" ns="global_costmap" />
+        <rosparam file="$(find nav_pkg)/nav_lidar/costmap_common_params.yaml" command="load" ns="local_costmap" />
+        <rosparam file="$(find nav_pkg)/nav_lidar/global_costmap_params.yaml" command="load" />
+        <rosparam file="$(find nav_pkg)/nav_lidar/local_costmap_params.yaml" command="load" />
+        <param name="base_global_planner" value="global_planner/GlobalPlanner" /> 
+        <param name="base_local_planner" value="my_planner/MyPlanner" />
+        <param name="controller_frequency" value="20" />
+    </node>
+
+    <!-- 加载已经扫描好的地图 -->
+    <!-- 需要配合AMCL定位算法使用，用于创建map节点 -->
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find env)/map/map.yaml"/>
+
+    <!--- AMCL定位算法 -->
+    <node pkg="amcl" type="amcl" name="amcl"/>
+
+    <!-- 开启rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find nav_pkg)/rviz/nav.rviz"/>
+</launch>

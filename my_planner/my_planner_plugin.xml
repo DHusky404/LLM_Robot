@@ -1,0 +1,8 @@
+<!-- 向ROS系统插件注册 -->
+<library path="lib/libmy_planner">
+    <class name="my_planner/MyPlanner" type="my_planner::MyPlanner" base_class_type="nav_core::BaseLocalPlanner">
+        <description>
+            自定义局部规划器
+        </description>
+    </class>
+</library>
