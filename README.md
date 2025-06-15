@@ -1,4 +1,5 @@
-# 基于大模型的智能寻物机器人
+# 基于大模型的智能寻物机器
+[实现效果](https://www.bilibili.com/video/BV1JgMhzxEUM/?share_source=copy_web&vd_source=a3bfc4276de24a65a1602554a59409b2)
 
 ## 环境配置
 
